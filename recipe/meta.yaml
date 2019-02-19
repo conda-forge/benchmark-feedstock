@@ -11,7 +11,7 @@ source:
   sha256: f8e525db3c42efc9c7f3bc5176a8fa893a9a9920bbd08cef30fb56a51854d60d
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
 
 requirements:
@@ -40,3 +40,6 @@ about:
 extra:
   recipe-maintainers:
     - xhochy
+    - wesm
+    - pitrou
+    - kszucs
