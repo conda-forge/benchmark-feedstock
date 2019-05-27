@@ -18,3 +18,8 @@ cmake \
     ..
 
 ninja install
+
+# https://github.com/google/benchmark/issues/824
+if [[ `uname -s` == "Linux*" ]]; then
+    sed -i -e 's:/usr/lib/x86_64-linux-gnu/librt.so:-lrt:g' ${PREFIX}/lib/cmake/benchmark/benchmarkTargets.cmake
+fi
