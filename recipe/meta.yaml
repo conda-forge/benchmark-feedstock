@@ -27,8 +27,10 @@ test:
     - if not exist %LIBRARY_INC%\\benchmark\\benchmark.h exit 1  # [win]
     - test -f $PREFIX/lib/libbenchmark.a  # [unix]
     - test -f $PREFIX/lib/libbenchmark_main.a  # [unix]
-    - test -f $PREFIX/lib/libbenchmark.so  # [unix]
-    - test -f $PREFIX/lib/libbenchmark_main.so  # [unix]
+    - test -f $PREFIX/lib/libbenchmark.so  # [linux]
+    - test -f $PREFIX/lib/libbenchmark_main.so  # [linux]
+    - test -f $PREFIX/lib/libbenchmark.dylib  # [osx]
+    - test -f $PREFIX/lib/libbenchmark_main.dylib  # [osx]
     - if not exist %PREFIX%\\Library\\lib\\benchmark.lib exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\benchmark_main.lib exit 1  # [win]
 
