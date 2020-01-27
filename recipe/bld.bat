@@ -8,6 +8,6 @@ cmake -GNinja ^
       -DBENCHMARK_ENABLE_GTEST_TESTS:BOOL=OFF ^
       ..
 
-cmake --build . --target INSTALL --config Release
+cmake --build . --target install --config Release
 
 popd
