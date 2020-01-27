@@ -1,7 +1,7 @@
 mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 
-cmake -G "%CMAKE_GENERATOR%" ^
+cmake -GNinja ^
       -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
       -DCMAKE_BUILD_TYPE=release ^
       -DBENCHMARK_ENABLE_TESTING:BOOL=OFF ^
