@@ -1,5 +1,5 @@
 {% set name = "benchmark" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 
 package:
   name: {{ name }}
@@ -8,11 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
-  sha256: 3c6a165b6ecc948967a1ead710d4a181d7b0fbcaa183ef7ea84604994966221a
+  sha256: 23082937d1663a53b90cb5b61df4bcc312f6dee7018da78ba00dd6bd669dfef2
 
 build:
-  number: 3
-  skip: true  # [win and vc<14]
+  number: 0
 
 requirements:
   build:
@@ -34,10 +33,10 @@ test:
 
 about:
   home: https://github.com/google/benchmark
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
-  license_file: 'LICENSE'
-  summary: 'A microbenchmark support library'
+  license_file: LICENSE
+  summary: A microbenchmark support library
 
 extra:
   recipe-maintainers:
