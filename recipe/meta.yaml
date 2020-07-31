@@ -11,7 +11,7 @@ source:
   sha256: 23082937d1663a53b90cb5b61df4bcc312f6dee7018da78ba00dd6bd669dfef2
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -24,8 +24,8 @@ test:
   commands:
     - test -f $PREFIX/include/benchmark/benchmark.h  # [unix]
     - if not exist %LIBRARY_INC%\\benchmark\\benchmark.h exit 1  # [win]
-    - test -f $PREFIX/lib/libbenchmark.a  # [unix]
-    - test -f $PREFIX/lib/libbenchmark_main.a  # [unix]
+    - test ! -f $PREFIX/lib/libbenchmark.a  # [unix]
+    - test ! -f $PREFIX/lib/libbenchmark_main.a  # [unix]
     - test -f $PREFIX/lib/libbenchmark${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/libbenchmark_main${SHLIB_EXT}  # [unix]
     - if not exist %PREFIX%\\Library\\lib\\benchmark.lib exit 1  # [win]
