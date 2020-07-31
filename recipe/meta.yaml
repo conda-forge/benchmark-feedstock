@@ -24,7 +24,7 @@ test:
   commands:
     - test -f $PREFIX/include/benchmark/benchmark.h  # [unix]
     - if not exist %LIBRARY_INC%\\benchmark\\benchmark.h exit 1  # [win]
-    - test ! -f $PREFIX/lib/libbenchmark.a # [unix]
+    - test ! -f $PREFIX/lib/libbenchmark.a  # [unix]
     - test ! -f $PREFIX/lib/libbenchmark_main.a  # [unix]
     - test -f $PREFIX/lib/libbenchmark${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/libbenchmark_main${SHLIB_EXT}  # [unix]
