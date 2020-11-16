@@ -6,7 +6,7 @@ set -x
 mkdir build
 pushd build
 
-cmake \
+cmake ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=release \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
