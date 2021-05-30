@@ -1,5 +1,5 @@
 {% set name = "benchmark" %}
-{% set version = "1.5.3" %}
+{% set version = "1.5.4" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
-  sha256: e4fbb85eec69e6668ad397ec71a3a3ab165903abe98a8327db920b94508f720e
+  sha256: e3adf8c98bb38a198822725c0fc6c0ae4711f16fbbf6aeb311d5ad11e5a081b5
 
 build:
   number: 0
