@@ -1,11 +1,11 @@
-About benchmark
-===============
+About benchmark-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/benchmark-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/google/benchmark
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/benchmark-feedstock/blob/main/LICENSE.txt)
 
 Summary: A microbenchmark support library
 
