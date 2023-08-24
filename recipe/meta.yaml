@@ -1,17 +1,15 @@
-{% set name = "benchmark" %}
 {% set version = "1.8.2" %}
 
 package:
-  name: {{ name }}
+  name: benchmark
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
   sha256: 2aab2980d0376137f969d92848fbb68216abb07633034534fc8c65cc4e7a0e93
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -22,14 +20,23 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/include/benchmark/benchmark.h  # [unix]
-    - if not exist %LIBRARY_INC%\\benchmark\\benchmark.h exit 1  # [win]
-    - test ! -f $PREFIX/lib/libbenchmark.a  # [unix]
-    - test ! -f $PREFIX/lib/libbenchmark_main.a  # [unix]
-    - test -f $PREFIX/lib/libbenchmark${SHLIB_EXT}  # [unix]
-    - test -f $PREFIX/lib/libbenchmark_main${SHLIB_EXT}  # [unix]
-    - if not exist %PREFIX%\\Library\\lib\\benchmark.lib exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\lib\\benchmark_main.lib exit 1  # [win]
+    # presence of shared libs
+    - test -f $PREFIX/lib/libbenchmark.so                       # [linux]
+    - test -f $PREFIX/lib/libbenchmark.dylib                    # [osx]
+    - test -f $PREFIX/lib/libbenchmark_main.so                  # [linux]
+    - test -f $PREFIX/lib/libbenchmark_main.dylib               # [osx]
+    - if not exist %LIBRARY_BIN%\benchmark.dll exit 1           # [win]
+    - if not exist %LIBRARY_LIB%\benchmark.lib exit 1           # [win]
+    - if not exist %LIBRARY_BIN%\benchmark_main.dll exit 1      # [win]
+    - if not exist %LIBRARY_LIB%\benchmark_main.lib exit 1      # [win]
+
+    # absence of static libs (unix)
+    - test ! -f $PREFIX/lib/libbenchmark.a                      # [unix]
+    - test ! -f $PREFIX/lib/libbenchmark_main.a                 # [unix]
+
+    # headers
+    - test -f $PREFIX/include/benchmark/benchmark.h             # [unix]
+    - if not exist %LIBRARY_INC%\benchmark\benchmark.h exit 1   # [win]
 
 about:
   home: https://github.com/google/benchmark
