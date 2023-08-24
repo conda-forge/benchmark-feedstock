@@ -1,12 +1,10 @@
-{% set name = "benchmark" %}
 {% set version = "1.8.2" %}
 
 package:
-  name: {{ name }}
+  name: benchmark
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
   sha256: 2aab2980d0376137f969d92848fbb68216abb07633034534fc8c65cc4e7a0e93
 
