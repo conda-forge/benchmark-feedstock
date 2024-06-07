@@ -1,0 +1,28 @@
+From d77b69271091c35b1da5d47894d924832f8cfc37 Mon Sep 17 00:00:00 2001
+From: Roman Lebedev <lebedev.ri@gmail.com>
+Date: Tue, 28 May 2024 13:24:21 +0300
+Subject: [PATCH] CMake: unbreak version handling for tarballs (#1793)
+
+#1742 changed the placeholder version from `0.0.0` to `v0.0.0`,
+but this line which was further dealing with it, was not updated.
+
+Fixes https://github.com/google/benchmark/issues/1792
+
+Co-authored-by: dominic <510002+dmah42@users.noreply.github.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 71396edac..942ce98c5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,7 +104,7 @@ get_git_version(GIT_VERSION)
+ 
+ # If no git version can be determined, use the version
+ # from the project() command
+-if ("${GIT_VERSION}" STREQUAL "0.0.0")
++if ("${GIT_VERSION}" STREQUAL "v0.0.0")
+   set(VERSION "v${benchmark_VERSION}")
+ else()
+   set(VERSION "${GIT_VERSION}")
