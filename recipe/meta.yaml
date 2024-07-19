@@ -7,9 +7,6 @@ package:
 source:
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
   sha256: d26789a2b46d8808a48a4556ee58ccc7c497fcd4c0af9b90197674a81e04798a
-  patches:
-    # backport https://github.com/google/benchmark/commit/d77b69271091c35b1da5d47894d924832f8cfc37
-    - patches/d77b69271091c35b1da5d47894d924832f8cfc37.patch
 
 build:
   number: 0
