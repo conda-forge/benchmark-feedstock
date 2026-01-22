@@ -1,4 +1,4 @@
-{% set version = "1.9.4" %}
+{% set version = "1.9.5" %}
 
 package:
   name: benchmark
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
-  sha256: b334658edd35efcf06a99d9be21e4e93e092bd5f95074c1673d5c8705d95c104
+  sha256: 9631341c82bac4a288bef951f8b26b41f69021794184ece969f8473977eaa340
 
 build:
   number: 0
