@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
   sha256: 9631341c82bac4a288bef951f8b26b41f69021794184ece969f8473977eaa340
+  patches:
+    - arm64-output-test-timing.patch  # [win and arm64]
 
 build:
   number: 1
