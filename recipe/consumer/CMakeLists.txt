@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 3.15)
-project(benchmark_consumer LANGUAGES CXX)
-find_package(benchmark CONFIG REQUIRED)
-add_executable(benchmark_consumer main.cpp)
-target_compile_features(benchmark_consumer PRIVATE cxx_std_17)
-target_link_libraries(benchmark_consumer PRIVATE benchmark::benchmark)

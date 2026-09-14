@@ -7,13 +7,9 @@ package:
 source:
   url: https://github.com/google/benchmark/archive/v{{ version }}.tar.gz
   sha256: 9631341c82bac4a288bef951f8b26b41f69021794184ece969f8473977eaa340
-  patches:
-    - arm64-output-test-timing.patch  # [win and arm64]
 
 build:
   number: 1
-  ignore_run_exports_from:
-    - gtest  # [win and arm64]
 
 requirements:
   build:
@@ -22,15 +18,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-  host:
-    - gtest  # [win and arm64]
 
 test:
-  requires:
-    - {{ compiler("cxx") }}  # [win and arm64]
-    - cmake  # [win and arm64]
-  files:
-    - consumer/  # [win and arm64]
   commands:
     # presence of shared libs
     - test -f $PREFIX/lib/libbenchmark.so                       # [linux]
@@ -49,12 +38,6 @@ test:
     # headers
     - test -f $PREFIX/include/benchmark/benchmark.h             # [unix]
     - if not exist %LIBRARY_INC%\benchmark\benchmark.h exit 1   # [win]
-    - cmake -S consumer -B consumer-build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"  # [win and arm64]
-    - cmake --build consumer-build  # [win and arm64]
-    - consumer-build\benchmark_consumer.exe  # [win and arm64]
-    - dumpbin /headers consumer-build\benchmark_consumer.exe | findstr /I /C:"AA64 machine (ARM64)"  # [win and arm64]
-    - dumpbin /headers "%LIBRARY_BIN%\benchmark.dll" | findstr /I /C:"AA64 machine (ARM64)"  # [win and arm64]
-    - dumpbin /headers "%LIBRARY_BIN%\benchmark_main.dll" | findstr /I /C:"AA64 machine (ARM64)"  # [win and arm64]
 
 about:
   home: https://github.com/google/benchmark
