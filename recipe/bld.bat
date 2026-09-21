@@ -3,7 +3,7 @@
 mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 
-cmake -GNinja ^
+cmake %CMAKE_ARGS% -GNinja ^
       -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
       -DCMAKE_BUILD_TYPE=release ^
       -DBENCHMARK_ENABLE_TESTING:BOOL=OFF ^
